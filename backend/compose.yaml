@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=todoapp'
+      - 'POSTGRES_PASSWORD=5WFuXf69Ff'
+      - 'POSTGRES_USER=postgres'
+    container_name: 'todoapp-database'
+    ports:
+      - '5432:5432'
+
