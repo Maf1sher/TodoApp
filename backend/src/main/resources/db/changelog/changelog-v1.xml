@@ -11,6 +11,16 @@
         http://www.liquibase.org/xml/ns/pro
         http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-    <include file="db/changelog/changelog-v1.xml"/>
+    <changeSet id="status-data" author="mafisher">
+        <insert tableName="status">
+            <column name="name" value="NEW" />
+        </insert>
+        <insert tableName="status">
+            <column name="name" value="IN_PROGRESS" />
+        </insert>
+        <insert tableName="status">
+            <column name="name" value="COMPLETED" />
+        </insert>
+    </changeSet>
 
 </databaseChangeLog>

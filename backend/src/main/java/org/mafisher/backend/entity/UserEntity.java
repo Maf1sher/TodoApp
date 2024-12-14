@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "USER_")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -45,6 +45,9 @@ public class UserEntity implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private List<CategoryEntity> category;
+
+    @OneToMany(mappedBy = "user")
+    private List<TaskEntity> tasks;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
