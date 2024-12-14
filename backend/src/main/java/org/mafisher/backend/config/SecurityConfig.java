@@ -40,7 +40,7 @@ public class SecurityConfig {
                                     "/h2-console"
                             ).permitAll();
 
-                            auth.anyRequest().permitAll();
+                            auth.anyRequest().authenticated();
                         }
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

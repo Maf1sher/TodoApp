@@ -1,6 +1,7 @@
 package org.mafisher.backend.config;
 
 import lombok.RequiredArgsConstructor;
+import org.mafisher.backend.mapper.Mapper;
 import org.mafisher.backend.service.impl.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
