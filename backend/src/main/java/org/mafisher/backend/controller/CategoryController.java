@@ -25,6 +25,12 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Category> getCategoryById(@PathVariable("id") long id, Principal principal) {
+        Category category = categoryService.getById(id, principal);
+        return ResponseEntity.ok(category);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<Category> create(@RequestBody CreateCategoryRequest category, Principal principal) {
         Category savedCategory = categoryService.create(category, principal);
@@ -33,7 +39,7 @@ public class CategoryController {
 
     @PostMapping("/edit/{id}")
     public ResponseEntity<Category> edit(
-            @PathVariable long id,
+            @PathVariable("id") long id,
             @RequestBody CreateCategoryRequest category,
             Principal principal
     ) {
@@ -42,7 +48,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Category> delete(@PathVariable long id, Principal principal) {
+    public ResponseEntity<Category> delete(@PathVariable("id") long id, Principal principal) {
         categoryService.delete(id, principal);
         return new ResponseEntity<>(HttpStatus.OK);
     }

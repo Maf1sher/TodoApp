@@ -14,4 +14,6 @@ public interface CategoryService {
     void delete(long id, Principal principal);
 
     List<Category> getAll(Principal principal);
+
+    Category getById(long id, Principal principal);
 }

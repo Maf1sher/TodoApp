@@ -92,4 +92,19 @@ public class CategoryServiceImpl implements CategoryService {
         List<CategoryEntity> categoryEntityList = categoryRepository.findByUserId(userEntity.getId());
         return categoryEntityList.stream().map(mapper::mapTo).collect(Collectors.toList());
     }
+
+    @Override
+    public Category getById(long id, Principal principal) {
+        UserEntity userEntity = userRepository.findByUsername(principal.getName())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        CategoryEntity category = categoryRepository.findById(id)
+                .orElseThrow(() -> new CustomException(BusinessErrorCodes.CATEGORY_NOT_FOUND));
+
+        if(!category.getUser().getId().equals(userEntity.getId())) {
+            throw new CustomException(BusinessErrorCodes.BAD_CREDENTIALS);
+        }
+
+        return mapper.mapTo(category);
+    }
 }
