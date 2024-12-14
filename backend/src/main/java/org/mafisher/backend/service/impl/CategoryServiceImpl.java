@@ -15,6 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -79,5 +82,14 @@ public class CategoryServiceImpl implements CategoryService {
         }
         categoryRepository.delete(categoryEntity);
 
+    }
+
+    @Override
+    public List<Category> getAll(Principal principal) {
+        UserEntity userEntity = userRepository.findByUsername(principal.getName())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        List<CategoryEntity> categoryEntityList = categoryRepository.findByUserId(userEntity.getId());
+        return categoryEntityList.stream().map(mapper::mapTo).collect(Collectors.toList());
     }
 }

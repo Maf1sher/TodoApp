@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -17,6 +18,12 @@ import java.security.Principal;
 public class CategoryController {
 
     private final CategoryService categoryService;
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Category>> getAllCategories(Principal principal) {
+        List<Category> categories = categoryService.getAll(principal);
+        return ResponseEntity.ok(categories);
+    }
 
     @PostMapping("/create")
     public ResponseEntity<Category> create(@RequestBody CreateCategoryRequest category, Principal principal) {

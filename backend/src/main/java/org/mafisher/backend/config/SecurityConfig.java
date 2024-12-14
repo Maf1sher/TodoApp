@@ -35,9 +35,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> {
                             auth.requestMatchers(
-                                    "/auth/**",
-                                    "/h2-console/**",
-                                    "/h2-console"
+                                    "/auth/**"
                             ).permitAll();
 
                             auth.anyRequest().authenticated();

@@ -13,7 +13,6 @@ import java.util.List;
 @Builder
 public class Category {
     private Long id;
-    private User username;
     private String name;
     private List<Task> tasks;
 }
