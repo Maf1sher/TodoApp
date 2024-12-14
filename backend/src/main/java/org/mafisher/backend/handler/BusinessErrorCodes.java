@@ -23,6 +23,8 @@ public enum BusinessErrorCodes{
     BAD_CATEGORY_ID(317, "Bad category id", HttpStatus.BAD_REQUEST),
     CATEGORY_NOT_FOUND(318, "Category not found", HttpStatus.BAD_REQUEST),
     DUPLICATE_CATEGORY(319, "Duplicate category", HttpStatus.BAD_REQUEST),
+    INVALID_TASK_STATUS(320, "Invalid task status", HttpStatus.BAD_REQUEST),
+    TASK_NOT_FOUND(321, "Task not found", HttpStatus.BAD_REQUEST),
     ;
 
     private final int code;

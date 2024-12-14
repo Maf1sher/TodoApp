@@ -15,11 +15,17 @@ public class TaskMapper implements Mapper<TaskEntity, Task> {
 
     @Override
     public Task mapTo(TaskEntity taskEntity) {
-        return modelMapper.map(taskEntity, Task.class);
+        return Task.builder()
+                .id(taskEntity.getId())
+                .title(taskEntity.getTitle())
+                .description(taskEntity.getDescription())
+                .status(taskEntity.getStatus().getName())
+                .category_id(taskEntity.getCategory().getId())
+                .build();
     }
 
     @Override
     public TaskEntity mapFrom(Task task) {
-        return modelMapper.map(task, TaskEntity.class);
+        return TaskEntity.builder().build();
     }
 }

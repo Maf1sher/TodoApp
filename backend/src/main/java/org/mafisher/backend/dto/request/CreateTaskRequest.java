@@ -1,4 +1,4 @@
-package org.mafisher.backend.dto.response;
+package org.mafisher.backend.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Task {
-    private Long id;
+public class CreateTaskRequest {
     private String title;
     private String description;
     private String status;
