@@ -13,13 +13,36 @@
 
     <changeSet id="status-data" author="mafisher">
         <insert tableName="status">
+            <column name="id" value="1" />
             <column name="name" value="NEW" />
         </insert>
         <insert tableName="status">
+            <column name="id" value="2" />
             <column name="name" value="IN_PROGRESS" />
         </insert>
         <insert tableName="status">
+            <column name="id" value="3" />
             <column name="name" value="COMPLETED" />
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="users" author="mafisher">
+        <insert tableName="user_">
+            <column name="id">1</column>
+            <column name="username">jan</column>
+            <column name="email">jan@mail.com</column>
+            <column name="password">$2a$10$77RKmEdqBHb37P5.vMhXKOU.y24cvb4RXBxvRHo5akW6kNEIeAFGy</column>
+            <column name="create_date">now()</column>
+            <column name="last_modified_date">null</column>
+        </insert>
+        <insert tableName="user_">
+            <column name="id">2</column>
+            <column name="username">adam</column>
+            <column name="email">adam@mail.com</column>
+            <column name="password">$2a$10$77RKmEdqBHb37P5.vMhXKOU.y24cvb4RXBxvRHo5akW6kNEIeAFGy</column>
+            <column name="create_date">now()</column>
+            <column name="last_modified_date">null</column>
         </insert>
     </changeSet>
 

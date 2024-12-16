@@ -10,20 +10,18 @@ public class CookieServiceImpl implements CookieService {
     @Override
     public Cookie getNewCookie(String arg, String value) {
         Cookie cookie = new Cookie(arg, value);
-        cookie.setHttpOnly(true); // Ciasteczko HttpOnly
-        cookie.setSecure(false);   // Ciasteczko Secure, wymaga HTTPS (w środowisku produkcyjnym)
-        cookie.setPath("/");      // Zakres ciasteczka
-        cookie.setMaxAge(24 * 60 * 60); // Ustaw czas ważności ciasteczka na 1 dzień
+        cookie.setSecure(false);
+        cookie.setPath("/");
+        cookie.setMaxAge(24 * 60 * 60);
         return cookie;
     }
 
     @Override
     public Cookie deleteCookie(String arg) {
         Cookie cookie = new Cookie(arg, null);
-        cookie.setHttpOnly(true); // Ciasteczko HttpOnly
-        cookie.setSecure(false);   // Ciasteczko Secure, wymaga HTTPS (w środowisku produkcyjnym)
-        cookie.setPath("/");      // Zakres ciasteczka
-        cookie.setMaxAge(0); // Ustaw czas ważności ciasteczka na 1 dzień
+        cookie.setSecure(false);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
         return cookie;
     }
 

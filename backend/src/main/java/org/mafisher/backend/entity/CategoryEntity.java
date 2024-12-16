@@ -16,7 +16,8 @@ import java.util.List;
 @Builder
 public class CategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "CATEGORY_SEQ", sequenceName = "CATEGORY_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_SEQ")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -26,6 +27,6 @@ public class CategoryEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<TaskEntity> tasks;
 }

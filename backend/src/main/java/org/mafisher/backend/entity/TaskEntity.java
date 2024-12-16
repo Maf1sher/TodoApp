@@ -14,11 +14,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TaskEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "TASK_SEQ", sequenceName = "TASK_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TASK_SEQ")
     @Column(name = "id", nullable = false)
     private Long id;
 
     private String title;
+
+    @Column(columnDefinition="text")
     private String description;
 
     @ManyToOne
