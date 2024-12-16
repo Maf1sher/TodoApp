@@ -16,7 +16,8 @@ import java.util.List;
 @Builder
 public class StatusEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "STATUS_SEQ", sequenceName = "STATUS_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STATUS_SEQ")
     @Column(name = "id", nullable = false)
     private Long id;
 
